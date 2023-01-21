@@ -1,0 +1,269 @@
+:root {
+  --br: 12px;
+  --box-sh: rgba(9, 30, 66, 0.25) 0px 1px 1px,
+    rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+}
+
+.search-wrapper:has(.form-control:focus) button {
+  display: none;
+}
+
+.navbar:nth-last-of-type(1) {
+  border-bottom: 1px solid #e9ecef;
+  overflow: hidden;
+  height: 85px;
+}
+
+.ghp-nav {
+  width: 70vw;
+  max-width: 600px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+}
+.ghp-nav > li {
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+}
+.ghp-nav > li svg {
+  transition: transform 450ms, opacity 450ms;
+}
+
+.ghp-nav li .popup-text {
+  opacity: 0;
+  position: absolute;
+  transform: translate(-60%, 100%);
+  transition: transform 450ms, opacity 450ms;
+}
+
+.ghp-nav > li:hover {
+  border-bottom: 3px solid #0d6efd;
+}
+
+.ghp-nav > li:hover svg {
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: transform 450ms, opacity 450ms;
+}
+
+.ghp-nav > li:hover .popup-text {
+  opacity: 1;
+  transform: translate(-60%, 50%);
+  transition: transform 450ms ease-in, opacity 450ms ease-in;
+}
+
+.container-lg {
+  margin-top: 30px;
+}
+
+aside {
+  display: flex;
+  flex-direction: column;
+  gap: 10px 0px;
+}
+
+.widget {
+  height: 300px;
+  position: relative;
+  box-shadow: var(--box-sh);
+}
+
+.widget:nth-child(1) {
+  background-position-y: center;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.widget .bg-image {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-image: url(assets/time-bg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
+.widget:before {
+  opacity: 0.7;
+}
+
+.widget .date-time {
+  z-index: 1;
+  position: relative;
+}
+
+.widget h4 {
+  text-shadow: 0 0 0px black;
+}
+
+.widget h4 ~ h4 {
+  margin-top: 30px;
+}
+
+.widget #time {
+  color: #0d6efd;
+}
+
+.widget #date {
+  color: #3e3f5e;
+}
+
+.widget .loader-progress-container {
+  width: 100%;
+}
+
+.loader-progress {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  position: relative;
+  margin: auto;
+}
+.loader-progress::before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  inset: 0px;
+  border-radius: 50%;
+  border: 5px solid #0d6efd;
+  animation: prixClipFix 2s linear 0s 1 normal forwards;
+  transform: rotate(45deg);
+}
+
+.loader-progress #percent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.widget ul {
+  list-style: none;
+}
+.widget ul li {
+  line-height: 1;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  white-space: nowrap;
+  word-wrap: normal;
+}
+
+.widget ul li ~ li {
+  margin-top: 3px;
+}
+
+.widget ul li:before {
+  content: "+";
+  margin-right: 4px;
+  border: 1px solid black;
+  display: inline-block;
+  vertical-align: middle;
+  background-color: #0d6efd;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  font-size: 12px;
+}
+
+.news-feed-opt {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.news-feed-opt > button {
+  flex-basis: 15%;
+}
+
+.post-form-container {
+  box-shadow: var(--box-sh);
+}
+
+.stories {
+  overflow-x: scroll;
+  width: inherit;
+}
+
+.stories .story-container {
+  width: 150px;
+}
+
+.stories .story {
+  overflow: hidden;
+  width: inherit;
+  height: 250px;
+  background-color: #3e3f5e;
+}
+
+.stories .story img:nth-child(1) {
+  width: inherit;
+  height: inherit;
+  left: 0;
+  transition: transform 350ms;
+}
+.stories .story:hover img:nth-child(1) {
+  cursor: pointer;
+  transform: scale(1.1);
+  transition: transform 350ms ease-in;
+}
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+.stories {
+  scrollbar-width: auto;
+  scrollbar-color: #817584 #ffffff;
+}
+
+/* Chrome, Edge, and Safari */
+.stories::-webkit-scrollbar {
+  height: 12px;
+}
+
+.stories::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+.stories::-webkit-scrollbar-thumb {
+  background-color: #817584;
+  border-radius: 10px;
+  border: 3px solid #ffffff;
+}
+
+.groups-container {
+  box-shadow: var(--box-sh);
+}
+
+@keyframes prixClipFix {
+  0% {
+    clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0);
+  }
+  25% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0);
+  }
+  50% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%);
+  }
+  75% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%);
+  }
+  80% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 80%);
+  }
+  90% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 70%);
+  }
+  100% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 65%);
+  }
+}
